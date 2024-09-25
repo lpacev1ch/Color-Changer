@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Color Converter</title>
+</head>
+<body>
+    <div class="content">
+        <h2  class = 'info'><b>Convert Color</b></h2>
+        <form id="colorForm">
+            <fieldset class = 'CMYK'>
+                <legend class = 'info'><b>CMYK:</b></legend>
+                <label for="c" class = 'info'>C: </label>
+                <input type="number" id="c" min="0" max="1" step="0.01" value="0" oninput="debounceSendColorFromCMYK()" class="wide-input">
+                <input type="range" id="c_range" min="0" max="1" step="0.01" value="0" oninput="syncCMYKSlider('c', 'c_range')" class="slider">
+                
+                <label for="m" class = 'info'>M: </label>
+                <input type="number" id="m" min="0" max="1" step="0.01" value="0" oninput="debounceSendColorFromCMYK()" class="wide-input">
+                <input type="range" id="m_range" min="0" max="1" step="0.01" value="0" oninput="syncCMYKSlider('m', 'm_range')" class="slider">
+                
+                <label for="y" class = 'info'>Y: </label>
+                <input type="number" id="y" min="0" max="1" step="0.01" value="0" oninput="debounceSendColorFromCMYK()" class="wide-input">
+                <input type="range" id="y_range" min="0" max="1" step="0.01" value="0" oninput="syncCMYKSlider('y', 'y_range')" class="slider">
+                
+                <label for="k" class = 'info'>K: </label>
+                <input type="number" id="k" min="0" max="1" step="0.01" value="0" oninput="debounceSendColorFromCMYK()" class="wide-input">
+                <input type="range" id="k_range" min="0" max="1" step="0.01" value="0" oninput="syncCMYKSlider('k', 'k_range')" class="slider">
+            </fieldset>
+
+            <fieldset class = 'LAB'>
+                <legend class = 'info'><b>LAB:</b></legend>
+                <label for="l" class = 'info'>L: </label>
+                <input type="number" id="l" min="0" max="100" step="0.01" value="100" oninput="debounceSendColorFromLAB()" class="wide-input">
+                <input type="range" id="l_range" min="0" max="100" step="0.01" value="100" oninput="syncLABSlider('l', 'l_range')" class="slider">
+                
+                <label for="a" class = 'info'>A: </label>
+                <input type="number" id="a" min="-128" max="127" step="0.01" value="0" oninput="debounceSendColorFromLAB()" class="wide-input">
+                <input type="range" id="a_range" min="-128" max="127" step="0.01" value="0" oninput="syncLABSlider('a', 'a_range')" class="slider">
+                
+                <label for="b" class = 'info'>B: </label>
+                <input type="number" id="b_lab" min="-128" max="127" step="0.01" value="0" oninput="debounceSendColorFromLAB()" class="wide-input">
+                <input type="range" id="b_lab_range" min="-128" max="127" step="0.01" value="0" oninput="syncLABSlider('b_lab', 'b_lab_range')" class="slider">
+            </fieldset>
+
+            <fieldset class = 'HSV'>
+                <legend class = 'info'><b>HSV:</b></legend>
+                <label for="h" class = 'info'>H: </label>
+                <input type="number" id="h" min="0" max="360" step="0.01" value="0" oninput="debounceSendColorFromHSV()" class="wide-input">
+                <input type="range" id="h_range" min="0" max="360" step="0.01" value="0" oninput="syncHSVSlider('h', 'h_range')" class="slider">
+                
+                <label for="s" class = 'info'>S: </label>
+                <input type="number" id="s" min="0" max="1" step="0.01" value="0" oninput="debounceSendColorFromHSV()" class="wide-input">
+                <input type="range" id="s_range" min="0" max="1" step="0.01" value="0" oninput="syncHSVSlider('s', 's_range')" class="slider">
+                
+                <label for="v" class = 'info'>V: </label>
+                <input type="number" id="v" min="0" max="1" step="0.01" value="1" oninput="debounceSendColorFromHSV()" class="wide-input">
+                <input type="range" id="v_range" min="0" max="1" step="0.01" value="1" oninput="syncHSVSlider('v', 'v_range')" class="slider">
+            </fieldset>
+
+            <fieldset class = 'CP'>
+                <legend class = 'info'><b>Color Picker:</b></legend>
+                <label for="colorPicker" class = 'info'>Choose Color: </label>
+                <input type="color" id="colorPicker" value="#ffffff" onchange="updateFromPicker()">
+            </fieldset>
+        </form>
+
+        <div id="colorDisplay" class="color-circle" style="background-color: rgb(171, 60, 60);"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

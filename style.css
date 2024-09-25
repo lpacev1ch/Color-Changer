@@ -1,0 +1,57 @@
+body{
+    background: #24577B;
+}
+.wide-input {
+    width: 100px; /* Увеличиваем ширину поля */
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.slider {
+    width: 200px;
+    margin: 5px;
+}
+
+fieldset {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    width: 30px;
+}
+
+/* Стили для круга с цветом */
+.color-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border: 2px solid #000;
+}
+
+.CMYK{
+    background: #96B4C9;
+    border: 1px solid #495F6F;
+}
+
+.LAB{
+    background: #96B4C9;
+    border: 1px solid #495F6F;
+}
+
+.HSV{
+    background: #96B4C9;
+    border: 1px solid #495F6F;
+}
+
+.CP{
+    background: #96B4C9;
+    border: 1px solid #495F6F;
+}
+
+.info{
+    color: #ffffff;
+}
